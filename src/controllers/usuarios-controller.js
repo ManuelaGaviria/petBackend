@@ -20,7 +20,8 @@ const agregar = async (req, res) => {
             cedula: req.body.cedula,
             nombre: req.body.nombre,
             apellidos: req.body.apellidos,
-            direccion: req.body.direccion
+            direccion: req.body.direccion,
+            telefono: req.body.telefono
         }
         const exito = await usuariosModel.agregar(user);
         if (exito) {
@@ -44,8 +45,6 @@ const editar = async (req, res) => {
             direccion: req.body.direccion,
             telefono: req.body.telefono
         }
-        console.log(id);
-        console.log(user);
         const exito = await usuariosModel.editar(id, user);
         if (exito) {
             res.send({ exito: true });
@@ -61,6 +60,7 @@ const editar = async (req, res) => {
 const eliminar = async (req, res) => {
     try {
         const id = req.body.id;
+        console.log(id);
         const exito = await usuariosModel.eliminar(id);
         if (exito) {
             res.send({ exito: true });

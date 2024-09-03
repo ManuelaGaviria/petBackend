@@ -15,7 +15,7 @@ app.use(
 
 
 const usuariosRouter = require('./src/routes/usuarios-routers');
-app.use('/usuarios', usuariosRouter);
+app.use('/clientes', usuariosRouter);
 
 const medicamentosRouter = require('./src/routes/medicamentos-routers');
 app.use('/medicamentos', medicamentosRouter);

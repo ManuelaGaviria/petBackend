@@ -21,9 +21,12 @@ const listar = async () => {
 
 const agregar = async (user) => {
     try {
+        console.log("me vine aca");
         const solicitudAgregar = await coleccionUsuarios.add(user);
+        console.log("llegue aca");
         return true;
     } catch (error) {
+        console.log("pero me vine ppor aca");
         return false;
     }
 }

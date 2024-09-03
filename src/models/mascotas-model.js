@@ -9,7 +9,7 @@ let lista = [];
 
 const listar = async () => {
     try {
-        const consultaMedicamento = await coleccionMedicamentos.get();
+        const consultaMedicamento = await coleccionMascotas.get();
         lista = consultaMedicamento.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         lista.sort((a, b) => (a.nombre > b.nombre) ? 1 : -1);
         return lista;
