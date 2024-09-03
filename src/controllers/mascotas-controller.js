@@ -10,6 +10,17 @@ const listar = async (req, res) => {
     }
 }
 
+const clienteActual = async (req, res) => {
+    try {
+        const id = req.body.id;
+        const cedula = await mascotasModel.listaClienteActual(id);
+        res.send({ cedula: cedula, exito: true });
+    } catch (error) {
+        console.error(`Error al listar Mascotas: ${error}`);
+        res.status(500).send({ error: "Ocurrió un error al listar el cliente actual de la mascota" });
+    }
+}
+
 const agregar = async (req, res) => {
     try {
         const mascota = {
@@ -74,6 +85,7 @@ const eliminar = async (req, res) => {
 
 module.exports = { 
     listar,
+    clienteActual,
     agregar,
     editar,
     eliminar

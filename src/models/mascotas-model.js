@@ -19,6 +19,28 @@ const listar = async () => {
     } 
 }
 
+const listaClienteActual = async(id) => {
+    try {
+        // Obtén la referencia al documento con el ID proporcionado
+        const consultaClienteMascota = await coleccionMascotas.doc(id).get();
+        
+        // Verifica si el documento existe
+        if (!consultaClienteMascota.exists) {
+            throw new Error('El documento no existe');
+        }
+        
+        // Obtén los datos del documento
+        const datos = consultaClienteMascota.data();
+        
+        // Obtén el campo 'cedula' del documento
+        const cliente = datos.cliente;
+
+        return cliente;
+    } catch (error) {
+        console.error(`Error al listar cliente mascotas: ${error}`);
+        throw error;
+    } 
+}
 
 const agregar = async (mascota) => {
     try {
@@ -59,6 +81,7 @@ const eliminar = async (id) => {
 
 module.exports = {
     listar,
+    listaClienteActual,
     agregar,
     editar,
     eliminar
