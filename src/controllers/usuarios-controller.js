@@ -1,9 +1,5 @@
 const usuariosModel = require('../models/usuarios-model');
 
-const reset = async (req, res) => {
-
-}
-
 const listar = async (req, res) => {
     try {
         const lista = await usuariosModel.listar();

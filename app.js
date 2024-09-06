@@ -23,6 +23,9 @@ app.use('/medicamentos', medicamentosRouter);
 const mascotasRouter = require('./src/routes/mascotas-routers');
 app.use('/mascotas', mascotasRouter);
 
+const reporteRouter = require('./src/routes/reporte-routers');
+app.use('/reporte', reporteRouter);
+
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
